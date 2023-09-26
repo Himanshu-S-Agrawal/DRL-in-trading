@@ -10,8 +10,3 @@ Training best configs recieved from pbt training is mentioned in end of results.
  We have used 1 day ohlc data of nifty index of India from yahoo finance for past 1 year
  With training data have 194 trading days
  Testing data is 34 trading days
-
-
- training data 
- Best trial config: {'env': 'wrapped_trading_env', 'monitor': False, 'env_config': {'data_filepath': 'train_data.csv', 'window_size': 5}, 'num_workers': 4, 'num_cpus_per_worker': 1, 'framework': 'torch', 'num_gpus': 0, 'lr': 0.0003, 'gamma': 0.99, 'clip_param': 0.2, 'kl_coeff': 0.893948557454668, 'num_sgd_iter': 2, 'sgd_minibatch_size': 5, 'train_batch_size': 30, 'model': {'fcnet_hiddens': [64, 64]}}
-Best trial final reward: 0.15615782811317508
