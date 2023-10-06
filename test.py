@@ -9,7 +9,7 @@ def create_compatible_trading_env(env_config):
     env = TradingEnv(env_config)
     return EnvCompatibility(env)
 
-register_env("testing_trading_env", create_compatible_trading_env)
+register_env("wrapped_trading_env", create_compatible_trading_env)
 
 def test_trained_model(model_info_path='model_info1.json', data_filepath='testbase_data.csv', num_episodes=50):
     with open(model_info_path, 'r') as f:
@@ -18,12 +18,13 @@ def test_trained_model(model_info_path='model_info1.json', data_filepath='testba
     env_config = {
         "data_filepath": data_filepath,
         "window_size": 5,
+        "least_episode_size": 75
     }
     env = TradingEnv(env_config)
 
     checkpoint_path = model_info['checkpoint_path']
     best_trial_config = model_info['best_trial_config']
-    trainer = PPO(env="testing_trading_env", config=best_trial_config)
+    trainer = PPO(env="wrapped_trading_env", config=best_trial_config)
     trainer.restore(checkpoint_path)
 
     rewards = []
