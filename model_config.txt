@@ -1,8 +1,0 @@
-all keys: ['_disable_preprocessor_api', '_disable_action_flattening', 'fcnet_hiddens', 'fcnet_activation', 'conv_filters',
- 'conv_activation', 'post_fcnet_hiddens', 'post_fcnet_activation', 'free_log_std', 'no_final_linear', 'vf_share_layers', 
- 'use_lstm', 'max_seq_len', 'lstm_cell_size', 'lstm_use_prev_action', 'lstm_use_prev_reward', '_time_major', 'use_attention',
-  'attention_num_transformer_units', 'attention_dim', 'attention_num_heads', 'attention_head_dim', 'attention_memory_inference',
-   'attention_memory_training', 'attention_position_wise_mlp_dim', 'attention_init_gru_gate_bias', 
-   'attention_use_n_prev_actions', 'attention_use_n_prev_rewards', 'framestack', 'dim', 'grayscale', 'zero_mean',
-    'custom_model', 'custom_model_config', 'custom_action_dist', 'custom_preprocessor', 'encoder_latent_dim',
-     'always_check_shapes', 'lstm_use_prev_action_reward', '_use_default_native_models']

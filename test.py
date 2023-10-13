@@ -1,9 +1,8 @@
 import json
 from ray.rllib.algorithms.ppo import PPO
-from simpletrading_env import TradingEnv  
+from custom_env.simpletesting_env import TradingEnv  
 from gymnasium.wrappers import EnvCompatibility
 from ray.tune.registry import register_env
-from simpletrading_env import TradingEnv
 
 def create_compatible_trading_env(env_config):
     env = TradingEnv(env_config)
@@ -37,12 +36,13 @@ def test_trained_model(model_info_path='model_info1.json', data_filepath='testba
         actions = []
         states = [obs]
         episode_rewards = []
+        info_list = []
         
         while not done:
             state = trainer.get_policy().get_initial_state()
             action, state_out, _ = trainer.compute_single_action(obs, state=state, full_fetch=True)
-            obs, reward, done, _ = env.step(action)
-            
+            obs, reward, done, info = env.step(action)
+            info_list.append(info["current_price"])
             actions.append(action)
             states.append(obs)
             episode_rewards.append(reward)
@@ -54,6 +54,7 @@ def test_trained_model(model_info_path='model_info1.json', data_filepath='testba
             'episode': i,
             'reward': episode_reward,
             'actions': actions,
+            'current_price': info_list,
             'states': states,
             'episode_rewards': episode_rewards
         })

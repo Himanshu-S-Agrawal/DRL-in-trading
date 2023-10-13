@@ -1,6 +1,9 @@
 import numpy as np
 import pandas as pd
 
+#Makes constant correlation to dynamic correlation as we generate based on day instead of entire data
+#Which also leads to a bit of correlation loss for overall data as we make it dynamic day to day
+
 def process_data_chunk(df_chunk, desired_correlation=0.1):
     df_chunk.dropna(inplace=True)
     df_chunk.reset_index(drop=True, inplace=True)
@@ -9,7 +12,7 @@ def process_data_chunk(df_chunk, desired_correlation=0.1):
     rho = desired_correlation
     theta = np.arccos(rho)
     
-    new_data = np.random.normal(2, 0.5, n)
+    new_data = np.random.normal(2, 0.5, n) 
     df_chunk['x2'] = new_data
 
     Xctr = df_chunk[['fwd_ret5', 'x2']] - df_chunk[['fwd_ret5', 'x2']].mean()
