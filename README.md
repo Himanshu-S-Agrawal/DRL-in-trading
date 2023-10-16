@@ -9,4 +9,4 @@ Setup Instructions:
 NOTE : Have cuda version 11.1 for above pytorch version otherwise if cuda already installed check the available pytorch version for your cuda version
 5. If gpu not available use pytorch cpu version, requirements.txt does not have pytorch so do install it seperately
 
-SCC_Policy: This is our pre-trained policy which showcases good results as can be verified from the results folder. Can directly use this policy for stochastic correlation alphas
+SCC_Policy: This is our pre-trained policy which showcases good results as can be verified from the results folder. Can directly use this policy for stochastically correlated alphas
